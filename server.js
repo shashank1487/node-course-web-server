@@ -25,10 +25,10 @@ app.use((req, resp, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-    console.log('Under Maintenance');
-  res.render("maintenance.hbs");
-});
+// app.use((req, res, next) => {
+//   console.log("Under Maintenance");
+//   res.render("maintenance.hbs");
+// });
 
 app.use(express.static(__dirname + "/public"));
 
@@ -52,6 +52,12 @@ app.get("/about", (req, res) => {
 app.get("/bad", (req, res) => {
   res.send({
     errorMessage: "Unable to fulfill the request"
+  });
+});
+
+app.get("/projects", (req, res) => {
+  res.render("projects.hbs", {
+    welcomeMessage: "Portfolio page"
   });
 });
 
